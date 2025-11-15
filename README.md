@@ -22,6 +22,10 @@ dotnet new globaljson --sdk-version 10.0.100 --force
 
 - Open https : // localhost:44317 in your Browser and follow the instructions
 
+Note: For install in a specific dir use:
+
+- dotnet new umbraco --output dotnet-10-mvc-umbraco --name MvcUmbraco
+
 # Migrations custom MVC
 
 Run the command below if there is no Migration
