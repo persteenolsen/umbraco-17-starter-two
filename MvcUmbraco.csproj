@@ -12,6 +12,8 @@
   <ItemGroup>
 
     <PackageReference Include="Umbraco.Cms" Version="17.0.0-rc1" />
+
+    <!--15-11-2025 - This needs to be here for Development -->
     <PackageReference Include="Umbraco.Cms.DevelopmentMode.Backoffice" Version="17.0.0-rc1" />
 
   </ItemGroup>
