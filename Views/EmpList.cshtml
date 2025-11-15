@@ -1,0 +1,114 @@
+﻿@using Umbraco.Cms.Web.Common.PublishedModels;
+
+@inherits Umbraco.Cms.Web.Common.Views.UmbracoViewPage
+@using ContentModels = Umbraco.Cms.Web.Common.PublishedModels;
+
+@{
+ Layout = "MasterEmpList.cshtml";
+}
+
+@using MvcUmbraco.Controllers
+@using MvcUmbraco.Models
+
+<!--Jumbotron, w title -->
+  <div class="jumbotron text-center jumbotron-fluid">
+          <div class="container">
+              
+             @{
+                @* The pageTitle will be displayed by the Current Page / Content Node *@
+                var currentPage = Umbraco.AssignedContentItem;
+                if( currentPage != null) {
+                    <h1 class="display-1">@currentPage.Value("pageTitle")</h1>
+                  }
+               else { 
+                     <h1 class="display-1">List of Employees</h1> 
+                     }
+              }
+                                  
+          </div>
+  </div>
+
+<!-- Main -->
+<section id="main" class="wrapper">
+    <div class="container">
+     
+      <!--Feedback message to the User-->
+      @if (TempData["ResultOk"] != null)
+        {
+           <br /><div class="alert-success">@TempData["ResultOk"]</div>
+        }
+       
+       <br />
+
+        @{
+           @* The bodyText will be displayed by the Current Page / Content Node *@
+           if( currentPage != null) {
+               <h2>@currentPage.Value("bodyText")</h2>
+               }
+               else { 
+                   <h2>MVC and Employees</h2>
+                   }
+         }
+       
+
+       <div class="autoscrollable-wrapper"></div>
+       <p><a href="/emp-create" target="_top">Create an Employee</a></p>
+
+        <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Designation</th>
+                <th scope="col">Address</th>
+                <th scope="col">CreatedOn</th>
+                <th scope="col"></th>
+            </tr>
+         </thead>
+         
+         <tbody>
+        
+        
+        @if( ViewData["EmployeeData"] == null ){
+             <p>Error, the Model is null...</p>
+            }
+        else{
+
+            <!--Look all the Employees-->
+           @foreach (var item in (IEnumerable<Employee>)ViewData["EmployeeData"])
+          //  @foreach (var item in Model )
+              {
+                <tr>
+                    <td width="20%">
+                        @item.Name
+                    </td>
+                    <td width="20%">
+                        @item.Designation
+                    </td>
+                    <td width="20%">
+                        @item.Address
+                    </td>
+                    <td width="20%">
+                        @item.RecordCreatedOn
+                    </td>
+                    <td width="20%">
+                        <div role="group" class="w-60 btn-group">
+                                                      
+                             <a href="/emp-update?id=@item.Id">Edit</a>
+                             <br />&nbsp;&nbsp;&nbsp;
+
+                              <a href="/emp-delete?id=@item.Id">Delete</a>
+                             <br />&nbsp;
+                          
+                        </div>
+                    </td>
+                </tr>
+             } 
+          }         
+
+        </tbody>
+       </table>
+       
+      </div>
+
+    </div>
+</section>
