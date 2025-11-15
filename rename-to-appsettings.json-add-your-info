@@ -28,7 +28,7 @@
         "Debug": false
       },
       "WebRouting": {
-        "UmbracoApplicationUrl": "https://umb.mvc.persteenolsen.com"
+        "UmbracoApplicationUrl": "https://umb.seventeen.mvc.persteenolsen.com"
       },
       "Content": {
         "Notifications": {
