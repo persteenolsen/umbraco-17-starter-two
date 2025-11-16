@@ -24,6 +24,12 @@
           "Password": "your-email-password"
         }
       },
+     "ModelsBuilder": {
+        "ModelsMode": "Nothing"
+      },
+      "Runtime": {
+        "Mode": "Production"
+      },
       "Hosting": {
         "Debug": false
       },

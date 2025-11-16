@@ -3,9 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using MvcUmbraco.Controllers;
 using MvcUmbraco.Data;
 
-// 20-06-2025 - Test
-//using Umbraco.Cms.Web.Website.Controllers;
-
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
 // This method will be called when making EF commands like migrations + update database
@@ -30,7 +27,8 @@ builder.CreateUmbracoBuilder()
 
 WebApplication app = builder.Build();
 
-// 16-11-2025 - Not working if runtime mode is set to Production in appsettings.json
+// 16-11-2025 - When runtime mode is set to Production in appsettings.json do the below:
+// Remove the codeblock with the Items in csproj file "RazorCompileOnBuild and RazorCompileOnPublish"
 // Note: Added to make the Umbraco Site more secure
 app.Use(async (context, next) =>
 {
@@ -78,6 +76,7 @@ app.UseUmbraco()
 
         // 13-11-2025 - Needs to be removed for run / build in verion 17
         //  u.UseInstallerEndpoints();
+
         u.UseBackOfficeEndpoints();
         u.UseWebsiteEndpoints();
 
