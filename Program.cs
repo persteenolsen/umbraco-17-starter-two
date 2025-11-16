@@ -19,8 +19,10 @@ builder.CreateUmbracoBuilder()
     .AddBackOffice()
     .AddWebsite()
 
-     // 13-11-2025 - Maybe needed as in Version 13
+     // 13-11-2025 - Most likely not needed in Version 17
+     // Setting from Version 13
      // .AddDeliveryApi()
+
     .AddComposers()
     .Build();
 
@@ -57,13 +59,10 @@ if (builder.Environment.IsDevelopment())
 else
 {
     app.UseHsts();
-
     
 }
 
-
 await app.BootUmbracoAsync();
-
 
 app.UseUmbraco()
     .WithMiddleware(u =>
@@ -73,13 +72,11 @@ app.UseUmbraco()
     })
     .WithEndpoints(u =>
     {
-
         // 13-11-2025 - Needs to be removed for run / build in verion 17
         //  u.UseInstallerEndpoints();
 
         u.UseBackOfficeEndpoints();
         u.UseWebsiteEndpoints();
-
        
     });
 
