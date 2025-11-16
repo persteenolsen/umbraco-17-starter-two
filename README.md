@@ -4,7 +4,7 @@ Last Updated:
 
 16-11-2025
 
-A Website by Umbraco CMS 17 serving as a Starter with custom MVC using EF Core
+A Website by .NET 10 and Umbraco 17 CMS serving as a Starter with custom MVC towards a Table using EF Core
 
 # Create a global json
 
@@ -43,7 +43,7 @@ Run the command below for update the Database by the Migration
 # Tech used for creating the Website
 
 - .NET 10
-- Umbraco CMS 17
+- Umbraco 17 CMS
 - Entity Framework Core
 - SQLite DB for both Dev + Prod
 - A traditional Webhotel for hosting
@@ -91,17 +91,21 @@ Take a look in file Program.cs and the code about security by the HTTP Headers:
 
 Go to appsettings.json and make sure that your Umbraco Site have the settings:
 
-- Hosting:Debug:false
+- Runtime:mode:Production
 
-- UseHTTPS:true
+- Modelsbuilder:Modelmode:Nothing
+
+- Hosting:Debug:false
 
 - WebRouting:UmbracoApplicationUrl:your.domain.com
 
-- Go to MvcUmbraco . csproj and enable the ItemGroup / compile:
+- UseHTTPS:true
 
-Note: Also check your settings in appsettings.Development.json for
+Note: Before deploying to Production Server make sure to remove the Items / code block in csproj file:
 
-- Hosting:Debug
+- RazorCompileOnBuild
+
+- RazorCompileOnPublish
 
 # Performance => Slow first Page load
 
@@ -152,8 +156,6 @@ Be sure that the Models for the Document Types are available and Recognized in V
 - Take a look in the folder by VS Code: umbraco / models where the .cs files / models were created
 
 - Stop your site and make a dotnet run to see your site is running
-
-- Note: The cs files / models must be ignored before Release Build / Production. This must be doing manually in the ItemGroup / compile in the MvcUmbraco . csproj !!!
 
 Happy use of Umbraco :-)
 
