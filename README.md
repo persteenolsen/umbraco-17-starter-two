@@ -97,6 +97,8 @@ Go to appsettings.json and make sure that your Umbraco Site have the settings:
 
 - Hosting:Debug:false
 
+- RuntimeMinification:UseInMemoryCache:true , acheBuster:Timestamp
+
 - WebRouting:UmbracoApplicationUrl:your.domain.com
 
 - UseHTTPS:true
