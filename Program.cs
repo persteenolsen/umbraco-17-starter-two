@@ -30,6 +30,7 @@ builder.CreateUmbracoBuilder()
 
 WebApplication app = builder.Build();
 
+// 16-11-2025 - Not working if runtime mode is set to Production in appsettings.json
 // Note: Added to make the Umbraco Site more secure
 app.Use(async (context, next) =>
 {
@@ -58,6 +59,8 @@ if (builder.Environment.IsDevelopment())
 else
 {
     app.UseHsts();
+
+    
 }
 
 
