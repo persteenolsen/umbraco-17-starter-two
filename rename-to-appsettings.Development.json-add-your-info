@@ -48,10 +48,6 @@
       },
       "WebRouting": {
         "UmbracoApplicationUrl": "https://localhost:44317"
-      },
-      "RuntimeMinification": {
-        "UseInMemoryCache": true,
-        "CacheBuster": "AppDomain"
       }
     }
   }
