@@ -21,7 +21,7 @@ builder.CreateUmbracoBuilder()
 
      // 13-11-2025 - Most likely not needed in Version 17
      // Setting from Version 13
-     // .AddDeliveryApi()
+     //.AddDeliveryApi()
 
     .AddComposers()
     .Build();

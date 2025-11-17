@@ -51,7 +51,7 @@
       },
       "RuntimeMinification": {
         "UseInMemoryCache": true,
-        "CacheBuster": "Timestamp"
+        "CacheBuster": "AppDomain"
       }
     }
   }

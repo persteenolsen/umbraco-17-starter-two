@@ -35,7 +35,7 @@
       },
       "RuntimeMinification": {
         "UseInMemoryCache": true,
-        "CacheBuster": "Timestamp"
+        "CacheBuster": "AppDomain"
       },
       "WebRouting": {
         "UmbracoApplicationUrl": "https://umb.seventeen.mvc.persteenolsen.com"
