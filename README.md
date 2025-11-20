@@ -2,9 +2,11 @@
 
 Last Updated:
 
-19-11-2025
+20-11-2025
 
 A Website by .NET 10 and Umbraco 17 CMS serving as a Starter with custom MVC towards a Table using EF Core
+
+The Website was upgraded from .NET 8 and Umbraco 13 CMS
 
 # Create a global json
 
@@ -25,6 +27,36 @@ dotnet new globaljson --sdk-version 10.0.100 --force
 Note: For install in a specific dir use:
 
 - dotnet new umbraco --output dotnet-10-mvc-umbraco --name MvcUmbraco
+
+# Steps for Upgrading the Umbraco CMS from 13 to 17
+
+- Copy the SQLite database with your data from the .NET 8 and Umbraco 13 solution to the new installation
+
+- Copy the MvcUmbraco . csproj and upgrade the package references to .NET 10 and Umbraco 17
+
+- Copy the Program . cs
+
+- Copy the Views and modify to Umbraco 17 needs like remove smidge ...
+
+- Copy the controllers
+
+- Copy the Models with custom Model "Employee"
+
+- Copy the Data with "MvcAppDbContext"
+
+Create the missing columns in the Sqlite which not were created automatically during the process
+
+Alter the Table UmbracoOpenIdDictApplication and Add the columns:
+
+- ApplicationType as Text
+
+- ClientType as Text
+
+- JsonWebKeySet as Text
+
+- Settings as Text
+
+Make the wanted settings in appsettings and appsettings development
 
 # Migrations custom MVC
 
