@@ -2,7 +2,7 @@
 
 Last Updated:
 
-20-11-2025
+22-11-2025
 
 A Website by .NET 10 and Umbraco 17 CMS serving as a Starter with custom MVC towards a Table using EF Core
 

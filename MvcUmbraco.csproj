@@ -39,7 +39,8 @@
   </PropertyGroup>
 
  <!--16-11-2025 - Enable codeblock for Development / Disable for Production-->
- <!--Note: Maybe not needed -->
+
+ <!--Note: Not needed because of the above code block-->
  <!--<ItemGroup>
    <Compile Remove="umbraco/models/**/*.cs" /> 
  </ItemGroup>-->
